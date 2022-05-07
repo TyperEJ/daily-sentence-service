@@ -28,9 +28,9 @@ class DummyHttpClient implements HTTPClient
      * @param array $headers
      * @return Response
      */
-    public function get(string $url, array $data = [], array $headers = [])
+    public function get(string $url): Response
     {
-        $ret = call_user_func($this->mock, $this->testRunner, 'GET', $url, is_null($data) ? [] : $data, $headers);
+        $ret = call_user_func($this->mock, $this->testRunner, 'GET', $url);
         return new Response($this->statusCode, $ret);
     }
 }

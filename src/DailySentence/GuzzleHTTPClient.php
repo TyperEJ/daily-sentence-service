@@ -8,8 +8,14 @@ use GuzzleHttp\Exception\GuzzleException;
 use EJLin\DailySentence\Exceptions\HTTPClientException;
 use EJLin\DailySentence\Exceptions\SentenceProviderException;
 
+/**
+ * GuzzleHTTPClient
+ */
 class GuzzleHTTPClient implements HTTPClient
 {
+    /**
+     * @var Client
+     */
     protected $guzzleClient;
 
     public function __construct()
@@ -19,19 +25,16 @@ class GuzzleHTTPClient implements HTTPClient
 
     /**
      * @param string $url
-     * @param array $data
-     * @param array $headers
      * @return Response
      * @throws HTTPClientException
      * @throws SentenceProviderException
      */
-    public function get(string $url, array $data = [], array $headers = [])
+    public function get(string $url): Response
     {
         try {
-            $response = $this->guzzleClient->get($url, [
-                'headers' => $headers,
-                'query' => $data,
-            ]);
+
+            $response = $this->guzzleClient->get($url);
+
         } catch (ClientException $clientException) {
 
             $response = $clientException->getResponse();

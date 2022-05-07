@@ -10,7 +10,7 @@ class MetaphorpsumProviderTest extends TestCase
 {
     public function testGetSentence()
     {
-        $mock = function ($testRunner, $httpMethod, $url, $data, $header) {
+        $mock = function ($testRunner, $httpMethod, $url) {
             /** @var \PHPUnit\Framework\TestCase $testRunner */
             $testRunner->assertEquals('GET', $httpMethod);
             $testRunner->assertEquals('http://metaphorpsum.com/sentences/3', $url);

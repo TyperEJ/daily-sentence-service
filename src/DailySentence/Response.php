@@ -2,6 +2,9 @@
 
 namespace EJLin\DailySentence;
 
+/**
+ * Response
+ */
 class Response
 {
     /** @var int */
